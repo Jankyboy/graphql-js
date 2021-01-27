@@ -3,8 +3,8 @@
 The JavaScript reference implementation for GraphQL, a query language for APIs created by Facebook.
 
 [![npm version](https://badge.fury.io/js/graphql.svg)](https://badge.fury.io/js/graphql)
-[![Build Status](https://github.com/graphql/graphql-js/workflows/CI/badge.svg?branch=master)](https://github.com/graphql/graphql-js/actions?query=branch%3Amaster)
-[![Coverage Status](https://codecov.io/gh/graphql/graphql-js/branch/master/graph/badge.svg)](https://codecov.io/gh/graphql/graphql-js)
+[![Build Status](https://github.com/graphql/graphql-js/workflows/CI/badge.svg?branch=main)](https://github.com/graphql/graphql-js/actions?query=branch%3Amain)
+[![Coverage Status](https://codecov.io/gh/graphql/graphql-js/branch/main/graph/badge.svg)](https://codecov.io/gh/graphql/graphql-js)
 
 See more complete documentation at https://graphql.org/ and
 https://graphql.org/graphql-js/.
@@ -14,7 +14,7 @@ Looking for help? Find resources [from the community](https://graphql.org/commun
 ## Getting Started
 
 A general overview of GraphQL is available in the
-[README](https://github.com/graphql/graphql-spec/blob/master/README.md) for the
+[README](https://github.com/graphql/graphql-spec/blob/main/README.md) for the
 [Specification for GraphQL](https://github.com/graphql/graphql-spec). That overview
 describes a simple set of GraphQL examples that exist as [tests](src/__tests__)
 in this repository. A good way to get started with this repository is to walk
@@ -106,7 +106,7 @@ graphql(schema, query).then((result) => {
 ### Want to ride the bleeding edge?
 
 The `npm` branch in this repository is automatically maintained to be the last
-commit to `master` to pass all tests, in the same form found on npm. It is
+commit to `main` to pass all tests, in the same form found on npm. It is
 recommended to use builds deployed to npm for many reasons, but if you want to use
 the latest not-yet-released version of graphql-js, you can do so by depending
 directly on this branch:
@@ -114,6 +114,16 @@ directly on this branch:
 ```
 npm install graphql@git://github.com/graphql/graphql-js.git#npm
 ```
+
+### Experimental features
+
+Each release of GraphQL.js will be accompanied by an experimental release containing support for the `@defer` and `@stream` directive proposal. We are hoping to get community feedback on these releases before the proposal is accepted into the GraphQL specification. You can use this experimental release of GraphQL.js by adding the following to your project's `package.json` file.
+
+```
+"graphql": "experimental-stream-defer"
+```
+
+Community feedback on this experimental release is much appreciated and can be provided on the [issue created for this purpose](https://github.com/graphql/graphql-js/issues/2848).
 
 ### Using in a Browser
 

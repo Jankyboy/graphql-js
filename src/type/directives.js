@@ -53,7 +53,7 @@ export class GraphQLDirective {
   extensions: ?ReadOnlyObjMap<mixed>;
   astNode: ?DirectiveDefinitionNode;
 
-  constructor(config: $ReadOnly<GraphQLDirectiveConfig>): void {
+  constructor(config: $ReadOnly<GraphQLDirectiveConfig>) {
     this.name = config.name;
     this.description = config.description;
     this.locations = config.locations;
@@ -84,12 +84,7 @@ export class GraphQLDirective {
     }));
   }
 
-  toConfig(): {|
-    ...GraphQLDirectiveConfig,
-    args: GraphQLFieldConfigArgumentMap,
-    isRepeatable: boolean,
-    extensions: ?ReadOnlyObjMap<mixed>,
-  |} {
+  toConfig(): GraphQLDirectiveNormalizedConfig {
     return {
       name: this.name,
       description: this.description,
@@ -126,6 +121,13 @@ export type GraphQLDirectiveConfig = {|
   isRepeatable?: ?boolean,
   extensions?: ?ReadOnlyObjMapLike<mixed>,
   astNode?: ?DirectiveDefinitionNode,
+|};
+
+type GraphQLDirectiveNormalizedConfig = {|
+  ...GraphQLDirectiveConfig,
+  args: GraphQLFieldConfigArgumentMap,
+  isRepeatable: boolean,
+  extensions: ?ReadOnlyObjMap<mixed>,
 |};
 
 /**
